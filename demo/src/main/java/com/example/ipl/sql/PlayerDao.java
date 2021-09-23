@@ -53,10 +53,14 @@ public class PlayerDao {
                 player.setPlayerId(resultSet.getInt("id"));
                 player.setPlayerName(resultSet.getString("player_name"));
                 player.setPlayerImageUrl(resultSet.getString("image_url"));
-                player.setBasePrice(resultSet.getInt("base_price"));
+                player.setBasePrice(resultSet.getDouble("base_price"));
                 player.setForm(resultSet.getInt("form"));
                 player.setSocialFollowing(resultSet.getInt("social_following"));
                 player.setPreviousRecord(resultSet.getInt("prev_record"));
+                player.setType(resultSet.getString("type"));
+                player.setTeamID(resultSet.getInt("team_id"));
+                player.setPrice(resultSet.getDouble("price_sold"));
+                player.setIsSold(resultSet.getInt("sold_unsold"));
                 return player;
             }
         });
