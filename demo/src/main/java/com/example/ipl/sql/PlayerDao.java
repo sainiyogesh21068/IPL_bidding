@@ -103,6 +103,7 @@ public class PlayerDao {
     }
     
     public boolean startBidding(){
+        PlayerDao.curpos = 0;
         TimerTask timerTask =new TimerTask() {
             @Override
             public void run(){
@@ -124,10 +125,11 @@ public class PlayerDao {
                 player.setPlayerId(resultSet.getInt("id"));
                 player.setPlayerName(resultSet.getString("player_name"));
                 player.setPlayerImageUrl(resultSet.getString("image_url"));
-                player.setBasePrice(resultSet.getInt("base_price"));
+                player.setBasePrice(resultSet.getDouble("base_price"));
                 player.setForm(resultSet.getInt("form"));
                 player.setSocialFollowing(resultSet.getInt("social_following"));
                 player.setPreviousRecord(resultSet.getInt("prev_record"));
+                player.setPrice(resultSet.getDouble("price_sold"));
                 return player;
             }
         });

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 const PlayerCard = ({ player }) => {
     return (
         <div className="p-2 col-2">
