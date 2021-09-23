@@ -82,7 +82,8 @@ public class PlayerDao {
         List<Player> playerList = (List<Player>) findById(playerId);
         if (!playerList.isEmpty()) {
             Double prev_price = playerList.get(0).getPrice();
-            if (prev_price == null || prev_price < bidPrice) {
+            Double base_price = playerList.get(0).getBasePrice()
+            if ( ( prev_price == null || prev_price < bidPrice) && bidPrice>base_price) {
                 String update = "Update player set team_id = ?, price_sold = ?, sold_unsold = 1 where id = ?";
                 int result = jdbcTemplate.update(update, new Object[]{teamId, bidPrice, playerId});
                 if (result > 0) {
