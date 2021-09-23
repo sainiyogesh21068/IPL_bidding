@@ -1,10 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getPlayers } from "../api";
+import PlayerCard from "./common/PlayerCard";
 
 const Home = () => {
+    const [players, setPlayers] = useState([]);
+
     useEffect(() => {
         getPlayers().then((res) => {
             console.log("players : ", res);
+            setPlayers(res);
         });
     }, []);
     return (
@@ -13,7 +17,6 @@ const Home = () => {
                 backgroundImage:
                     "url('https://www.iplt20.com/resources/v4.24.0/i/element-bgs/coloured_footer-bg-left.png')",
                 backgroundRepeat: "no-repeat",
-                // backgroundColor: "#061d42",
             }}
             className="customContainer"
         >
@@ -31,6 +34,13 @@ const Home = () => {
                     Add Player
                 </a>
             </span>
+            {players?.length > 0 ? (
+                <div class="d-flex">
+                    {players.map((player) => {
+                        return <PlayerCard player={player} />;
+                    })}
+                </div>
+            ) : null}
         </div>
     );
 };
