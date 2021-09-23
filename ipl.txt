@@ -1,0 +1,29 @@
+create database ipl;
+
+use ipl;
+
+create table team(
+id int not null auto_increment,
+team_name varchar(100),
+primary key(id)
+);
+
+describe team;
+
+create table player(
+id int not null auto_increment,
+player_name varchar(100),
+image_url varchar(100),
+social_following bigint,
+prev_record int,
+form int,
+base_price double,
+type varchar(10),
+sold_unsold int,
+price_sold double,
+primary key(player_name),
+foreign key(team_id) references team(id)
+);
+
+describe player;
+
