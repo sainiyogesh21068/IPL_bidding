@@ -44,14 +44,6 @@ public class PlayerDao {
         });
         return playerList;
     }
-    public boolean saveEmp(Emp emp){
-        String insert = "Insert into player(player_name,image_url,base_price,form,social_following,prev_record,type,sold_unsold,team_id,price_sold)" +
-                                   " values(:playerName,:playerImageUrl,:basePrice,:form,:socialFollowing,:previousRecord,:type,:isSold,:teamID,:price)";
-        int result = namedParameterJdbcTemplate.update(insert, new BeanPropertySqlParameterSource(emp));
-        if(result>0){
-            return true;
-        }
-        return false;
-    }
+
 }
 
