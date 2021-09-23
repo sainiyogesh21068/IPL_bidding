@@ -17,12 +17,15 @@ const Home = () => {
         <div
             style={{
                 backgroundImage:
-                    "url('https://www.iplt20.com/resources/v4.24.0/i/element-bgs/coloured_footer-bg-left.png')",
+                    "url('https://i.ibb.co/4srfr1v/wp3049854-removebg-preview.png')",
                 backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "top",
+                minHeight: "100vh",
             }}
             className="customContainer"
         >
-            <span className="d-flex">
+            <span className="d-flex p-2">
                 <div class="form-group mr-2">
                     <input
                         type="text"

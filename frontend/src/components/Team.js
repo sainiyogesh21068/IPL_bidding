@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { getBid, startBidding } from "../api";
 import auth from "../auth";
 
 const Team = () => {
@@ -8,6 +9,11 @@ const Team = () => {
         if (!auth.isLoggedIn()) {
             window.location.href = "/home";
         }
+        startBidding().then(() => {});
+
+        getBid().then((res) => {
+            console.log("bid : ", res);
+        });
     }, []);
 
     return (
