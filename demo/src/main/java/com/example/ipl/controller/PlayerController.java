@@ -1,7 +1,7 @@
 package com.example.ipl.controller;
 
-import com.example.ipl.model.Emp;
-import com.example.ipl.service.EmpService;
+import com.example.ipl.model.Player;
+import com.example.ipl.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,28 +9,20 @@ import java.util.Collection;
 
 @CrossOrigin
 @RestController
-public class EmpController {
+public class PlayerController {
 
     @Autowired
-    EmpService empService;
+    PlayerService playerService;
 
-    @GetMapping("/getallemp")
-    public Collection<Emp> getAllEmp() {
-        return empService.getAll();
+    @GetMapping("/players/all")
+    public Collection<Player> getAllPlayers() {
+        return playerService.getAll();
     }
 
-    @GetMapping("/findbyid")
-    public Collection<Emp> findById(@RequestParam Integer id) {
-        return empService.getById(id);
+    @GetMapping("/players/byid")
+    public Collection<Player> getPlayerById(@RequestParam Integer id) {
+        return playerService.getById(id);
     }
 
-    @PostMapping("/addemp")
-    public boolean saveemp(@RequestBody Emp emp) {
-        return empService.saveEmp(emp);
-    }
 
-    @PostMapping("/delemp")
-    public boolean delemp(@RequestParam int id){
-        return empService.delEmp(id);
-    }
 }

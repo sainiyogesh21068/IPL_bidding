@@ -43,4 +43,23 @@ public class PlayerDao {
         });
         return playerList;
     }
+
+    public Collection<Player> findById(Integer id){
+        List<Player> playerList = new ArrayList<>();
+        playerList = jdbcTemplate.query("Select * from player where id = ?", new Object[] {id},  new RowMapper<Player>() {
+            @Override
+            public Player mapRow(ResultSet resultSet, int i) throws SQLException {
+                Player player = new Player();
+                player.setPlayerId(resultSet.getInt("id"));
+                player.setPlayerName(resultSet.getString("player_name"));
+                player.setPlayerImageUrl(resultSet.getString("image_url"));
+                player.setBasePrice(resultSet.getInt("base_price"));
+                player.setForm(resultSet.getInt("form"));
+                player.setSocialFollowing(resultSet.getInt("social_following"));
+                player.setPreviousRecord(resultSet.getInt("prev_record"));
+                return player;
+            }
+        });
+        return playerList;
+    }
 }
