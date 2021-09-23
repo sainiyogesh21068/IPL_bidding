@@ -1,4 +1,10 @@
+import { useState, useEffect } from "react";
+
 const Navbar = () => {
+    const [team, setTeam] = useState({});
+    useEffect(() => {
+        setTeam(JSON.parse(localStorage.getItem("team")));
+    }, []);
     return (
         <nav
             class="navbar navbar-light shadow"
@@ -11,7 +17,9 @@ const Navbar = () => {
                     className="d-inline-block align-top"
                     alt=""
                 />
-                <span className="h4 ml-2 text-white">&nbsp; AUCTION</span>
+                <span className="h4 ml-2 text-white">
+                    &nbsp; AUCTION : {team?.name}
+                </span>
             </a>
         </nav>
     );

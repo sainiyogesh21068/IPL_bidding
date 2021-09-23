@@ -1,37 +1,23 @@
+import { loginTeam } from "./api";
+
 const auth = {
-    isLoggedIn: (name) => {
-        let flag=false
-
-        if(!localStorage.getItem("isLoggedIn")){
-                
-                    
-
-            
-        //sample output of below fetch
-        //    [
-        //        {
-        //             "name": "KKR",
-        //             "id": 3
-        //        }
-        //    ]
-
-
-        fetch('http://localhost:8080/findbyname?name='+name)
-        .then(response => response.json())
-        .then(d => { 
-            console.log(d)
-            console.log(d.length)
-            if(d.length>0)
-            {
-                flag=true;
-                localStorage.setItem("isLoggedIn",flag);
+    isLoggedIn: () => {
+        return localStorage.getItem("isLoggedIn");
+    },
+    login: (name) => {
+        console.log("name : ", name);
+        loginTeam(name).then((res) => {
+            console.log("login : ", res);
+            if (res?.length != 0) {
+                alert("Logged in! Start Bidding!");
+                localStorage.setItem("isLoggedIn", true);
+                localStorage.setItem("team", JSON.stringify(res[0]));
+                window.location.href = "/team";
+            } else {
+                alert("Login failed!");
             }
-        } );  
+        });
+    },
+};
 
-    }
-
-        return flag; 
-    }
-}
-
-export default auth
+export default auth;

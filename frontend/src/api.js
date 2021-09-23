@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8081";
+const BASE_URL = "http://localhost:8080";
 
 export const getPlayers = async () => {
     let res = await fetch(BASE_URL + "/players/all", {
@@ -16,5 +16,10 @@ export const addPlayer = async (playerData) => {
         method: "POST",
         body: JSON.stringify(playerData),
     });
+    return res.json();
+};
+
+export const loginTeam = async (name) => {
+    let res = await fetch(BASE_URL + "/findbyname?name=" + name);
     return res.json();
 };

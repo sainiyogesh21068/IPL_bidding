@@ -24,12 +24,15 @@ const Player = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        var res = addPlayer(formData);
-        alert(
-            res === true
-                ? "Player Added Successfully"
-                : "Couldn't Add Player, Something went wrong"
-        );
+        addPlayer(formData).then((res) => {
+            console.log("add player : ", res);
+            alert(
+                res === true
+                    ? "Player Added Successfully"
+                    : "Couldn't Add Player, Something went wrong"
+            );
+            console.log("add player : ", res);
+        });
         setformData({
             playerName: "",
             playerImageUrl: "",

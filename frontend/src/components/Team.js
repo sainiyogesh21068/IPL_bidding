@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import auth from "../auth";
 
 const Team = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        
-        setIsLoggedIn(auth.isLoggedIn());
+        if (!auth.isLoggedIn()) {
+            window.location.href = "/home";
+        }
     }, []);
 
     return (
