@@ -28,7 +28,7 @@ public class TeamDao {
 
     public Collection<Team> findById(String  name){
         List<Team> teamList = new ArrayList<>();
-        teamList = jdbcTemplate.query( "Select * from Team where name = ?", new Object[] {name}, new RowMapper<Team>() {
+        teamList = jdbcTemplate.query( "Select * from team where team_name = ?", new Object[] {name}, new RowMapper<Team>() {
             @Override
             public Team mapRow(ResultSet resultSet, int i) throws SQLException {
                 Team t = new Team();
