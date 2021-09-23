@@ -18,4 +18,7 @@ public class PlayerService {
     public Collection<Player> getById(Integer id){
         return playerDao.findById(id);
     }
+    public boolean savePlayer(Player player){
+        return playerDao.savePlayer(player);
+    }
 }

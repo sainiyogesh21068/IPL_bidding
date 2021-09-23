@@ -1,5 +1,6 @@
 package com.example.ipl.controller;
 
+import com.example.ipl.model.Emp;
 import com.example.ipl.model.Player;
 import com.example.ipl.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,10 @@ public class PlayerController {
     @GetMapping("/players/byid")
     public Collection<Player> getPlayerById(@RequestParam Integer id) {
         return playerService.getById(id);
+    }
+    @PostMapping("/players/saveplayer")
+    public boolean savePlayer(@RequestBody Player player) {
+        return playerService.savePlayer(player);
     }
 
 }
