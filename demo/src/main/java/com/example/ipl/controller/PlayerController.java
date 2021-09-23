@@ -24,5 +24,4 @@ public class PlayerController {
         return playerService.getById(id);
     }
 
-
 }
