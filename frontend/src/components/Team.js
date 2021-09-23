@@ -5,6 +5,7 @@ const Team = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
+        
         setIsLoggedIn(auth.isLoggedIn());
     }, []);
 
