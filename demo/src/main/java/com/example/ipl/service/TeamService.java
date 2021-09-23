@@ -18,15 +18,5 @@ public class TeamService {
         return tdao.findById(name);
     }
 
-//    public boolean saveEmp(Team t){
-//        return empDao.saveEmp(emp);
-//    }
-//
-//    public boolean saveEmpBetter(Emp emp){
-//        return empDao.saveEmp(emp);
-//    }
-//
-//    public boolean delEmp(int id){
-//        return empDao.delEmp(id);
-//    }
+
 }
