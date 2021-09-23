@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useState,useEffect } from "react";
 import { getPlayers } from "../api";
 
 const Home = () => {
+    const  [name, setname] = useState("");
     useEffect(() => {
         getPlayers().then((res) => {
             console.log("players : ", res);
@@ -23,6 +24,9 @@ const Home = () => {
                         type="text"
                         class="form-control m-0"
                         id="teamName"
+                        onchange={()=>{
+                          setname(document.getElementById("teamName").value)
+                        }}
                         placeholder="Enter team name"
                     />
                 </div>{" "}
