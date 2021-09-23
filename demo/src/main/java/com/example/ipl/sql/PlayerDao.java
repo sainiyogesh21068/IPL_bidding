@@ -64,8 +64,8 @@ public class PlayerDao {
     }
 
     public boolean savePlayer(Player player){
-        String insert = "Insert into player(player_name,image_url,base_price,form,social_following,prev_record,type,sold_unsold,team_id,price_sold)" +
-                " values(:playerName,:playerImageUrl,:basePrice,:form,:socialFollowing,:previousRecord,:type,:isSold,:teamID,:price)";
+        String insert = "Insert into player(player_name,image_url,base_price,form,social_following,prev_record,type,sold_unsold)" +
+                " values(:playerName,:playerImageUrl,:basePrice,:form,:socialFollowing,:previousRecord,:type,:isSold)";
         int result = namedParameterJdbcTemplate.update(insert, new BeanPropertySqlParameterSource(player));
         if(result>0){
             return true;
