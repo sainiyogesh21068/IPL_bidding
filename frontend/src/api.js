@@ -6,3 +6,20 @@ export const getPlayers = async () => {
     });
     return res.json();
 };
+
+export const addPlayer = async (playerData) => {
+    let res = await fetch(BASE_URL + "/players/saveplayer", {
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(playerData),
+    });
+    return res.json();
+};
+
+export const loginTeam = async (name) => {
+    let res = await fetch(BASE_URL + "/findbyname?name=" + name);
+    return res.json();
+};

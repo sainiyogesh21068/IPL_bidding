@@ -8,11 +8,18 @@ const PlayerCard = ({ player }) => {
                     alt="Card image cap"
                 />
                 <div className="card-body">
-                    <h5 className="card-title">{player.playerName}</h5>
+                    <h5 className="card-title">
+                        {player.playerName.split(" ")[0]}
+                        <br />
+                        {player.playerName.split(" ")[1]}
+                    </h5>
                 </div>
-                <div className="d-flex p-2 w-100" style={{ flexWrap: "wrap" }}>
+                <div
+                    className="d-flex flex-row p-2 w-100"
+                    style={{ flexWrap: "wrap" }}
+                >
                     <span className="badge alert-primary m-1">
-                        Base Price : {player?.basePrice}
+                        Base : {player?.basePrice}
                     </span>
                     <span className="badge alert-secondary m-1">
                         Social : {player?.socialFollowing}

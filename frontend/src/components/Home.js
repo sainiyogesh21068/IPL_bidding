@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { getPlayers } from "../api";
+import auth from "../auth";
 import PlayerCard from "./common/PlayerCard";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
             setPlayers(res);
         });
     }, []);
+
     return (
         <div
             style={{
@@ -29,7 +31,14 @@ const Home = () => {
                         placeholder="Enter team name"
                     />
                 </div>{" "}
-                <span className="btn btn-primary mr-2">Login Team</span>
+                <span
+                    className="btn btn-primary mr-2"
+                    onClick={() => {
+                        auth.login(document.getElementById("teamName").value);
+                    }}
+                >
+                    Login Team
+                </span>
                 <a href="/player" className="btn btn-primary">
                     Add Player
                 </a>
