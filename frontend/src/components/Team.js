@@ -9,7 +9,7 @@ const Team = () => {
     }, []);
 
     return (
-        <div>
+        <div className="customContainer">
             <div className="d-flex justify-content-center flex-column">
                 <div className="d-flex justify-content-center">
                     <img
@@ -24,18 +24,18 @@ const Team = () => {
                 <span>Top Bid : CSK (1.5 Cr)</span>
                 <span>Your Bid : 1.2 Cr</span>{" "}
             </div>
-            <div className="d-flex justify-content-center text-center h3">
+            <div className="d-flex justify-content-center text-center h3 mt-2">
                 <span className="d-flex flex-row">
                     <div class="form-group mr-2">
                         <input
                             type="text"
-                            class="form-control"
+                            class="form-control mt-0"
                             id="bidAmount"
                             aria-describedby="place bid"
                             placeholder="Enter bid amount"
                         />
                     </div>{" "}
-                    <span className="btn btn-primary ml-2">Place Bid</span>
+                    <span className="btn btn-primary">Place Bid</span>
                 </span>
             </div>
         </div>
