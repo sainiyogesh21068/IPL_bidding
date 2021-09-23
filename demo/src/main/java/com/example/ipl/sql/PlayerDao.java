@@ -25,7 +25,7 @@ public class PlayerDao {
     @Autowired
     NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public Collection<Player> findAll(){
+    public Collection<Player> findAll() {
         List<Player> playerList = new ArrayList<>();
         playerList = jdbcTemplate.query("Select * from player", new RowMapper<Player>() {
             @Override
@@ -44,9 +44,9 @@ public class PlayerDao {
         return playerList;
     }
 
-    public Collection<Player> findById(Integer id){
+    public Collection<Player> findById(Integer id) {
         List<Player> playerList = new ArrayList<>();
-        playerList = jdbcTemplate.query("Select * from player where id = ?", new Object[] {id},  new RowMapper<Player>() {
+        playerList = jdbcTemplate.query("Select * from player where id = ?", new Object[]{id}, new RowMapper<Player>() {
             @Override
             public Player mapRow(ResultSet resultSet, int i) throws SQLException {
                 Player player = new Player();
@@ -63,15 +63,39 @@ public class PlayerDao {
         return playerList;
     }
 
-    public boolean savePlayer(Player player){
+    public boolean savePlayer(Player player) {
         String insert = "Insert into player(player_name,image_url,base_price,form,social_following,prev_record,type,sold_unsold)" +
                 " values(:playerName,:playerImageUrl,:basePrice,:form,:socialFollowing,:previousRecord,:type,:isSold)";
         int result = namedParameterJdbcTemplate.update(insert, new BeanPropertySqlParameterSource(player));
-        if(result>0){
+        if (result > 0) {
             return true;
         }
         return false;
     }
 
+    public boolean updatePrice(Integer teamId, Integer playerId, Double bidPrice) {
+        boolean done = false;
+        List<Player> playerList = (List<Player>) findById(playerId);
+        if (!playerList.isEmpty()) {
+            Double prev_price = playerList.get(0).getPrice();
+            if (prev_price == null || prev_price < bidPrice) {
+                String update = "Update player set team_id = ?, price_sold = ?, sold_unsold = 1 where id = ?";
+                int result = jdbcTemplate.update(update, new Object[]{teamId, bidPrice, playerId});
+                if (result > 0) {
+                    done = true;
+                }
+            }
+        }
+        return done;
+    }
+
+    public Double getPrice(Integer playerId) {
+        Double price = Double.valueOf(-1);
+        List<Player> playerList = (List<Player>) findById(playerId);
+        if (!playerList.isEmpty()) {
+            price = playerList.get(0).getPrice();
+        }
+        return price;
+    }
 
 }

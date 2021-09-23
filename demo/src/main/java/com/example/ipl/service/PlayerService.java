@@ -21,4 +21,13 @@ public class PlayerService {
     public boolean savePlayer(Player player){
         return playerDao.savePlayer(player);
     }
+
+    public boolean updatePlayerPrice(Integer teamId, Integer playerId, Double bidPrice){
+        return playerDao.updatePrice(teamId, playerId, bidPrice);
+    }
+
+    public Double getPlayerPrice(Integer playerId){
+        return playerDao.getPrice(playerId);
+    }
+
 }

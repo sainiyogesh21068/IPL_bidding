@@ -29,4 +29,14 @@ public class PlayerController {
         return playerService.savePlayer(player);
     }
 
+    @PostMapping("/bid")
+    public boolean updatePlayerPrice(@RequestParam Integer teamId, @RequestParam Integer playerId, @RequestParam Double bidPrice) {
+        return playerService.updatePlayerPrice(teamId, playerId, bidPrice);
+    }
+
+    @GetMapping("/players/price")
+    public Double getPlayerPrice(@RequestParam Integer playerId) {
+        return playerService.getPlayerPrice(playerId);
+    }
+
 }
