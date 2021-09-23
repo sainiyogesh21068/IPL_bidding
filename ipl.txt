@@ -51,5 +51,8 @@ select * from team;
 insert into player(player_name, image_url, social_following, prev_record, form, base_price, type, sold_unsold) values ('MS Dhoni', 'https://static.iplt20.com/players/210/1.png', 35000000, 9, 9, 10000000, 'allrounder', 0);
 insert into player(player_name, image_url, social_following, prev_record, form, base_price, type, sold_unsold) values ('Rohit Sharma', 'https://static.iplt20.com/players/284/107.png', 20500000, 8, 9, 5000000, 'batsman', 0);
 insert into player(player_name, image_url, social_following, prev_record, form, base_price, type, sold_unsold) values ('Virat Kohli', 'https://static.iplt20.com/players/284/164.png', 1560000000, 9, 9, 15000000, 'batsman', 0);
+insert into player(player_name, image_url, social_following, prev_record, form, base_price, type, sold_unsold) values ('Ravindra Jadeja', 'https://static.iplt20.com/players/284/9.png', 80000000, 10, 9, 1000000, 'allrounder', 0);
+insert into player(player_name, image_url, social_following, prev_record, form, base_price, type, sold_unsold) values ('Dwayne Bravo', 'https://static.iplt20.com/players/210/25.png', 60000000, 9, 10, 15000000, 'allrounder', 0);
+insert into player(player_name, image_url, social_following, prev_record, form, base_price, type, sold_unsold) values ('Andre Rusell', 'https://static.iplt20.com/players/210/177.png', 50000000, 9, 7, 2000000, 'allrounder', 0);
 
 select * from player;
