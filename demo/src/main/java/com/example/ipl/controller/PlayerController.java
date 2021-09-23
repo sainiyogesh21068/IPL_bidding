@@ -39,4 +39,13 @@ public class PlayerController {
         return playerService.getPlayerPrice(playerId);
     }
 
+    @GetMapping("/startbidding")
+    public boolean startBidding() {
+        return playerService.startBidding();
+    }
+
+    @GetMapping("/getbidplayer")
+    public Player getBidPLayer() {
+        return playerService.biddingPlayer();
+    }
 }

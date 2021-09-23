@@ -30,4 +30,11 @@ public class PlayerService {
         return playerDao.getPrice(playerId);
     }
 
+    public boolean startBidding(){
+        return playerDao.startBidding();
+    }
+    public Player biddingPlayer(){
+        return playerDao.biddingPlayer();
+    }
+
 }

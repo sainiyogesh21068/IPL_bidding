@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class PlayerDao {
 
+    static Integer curPlayerId;
+    static Integer curpos = 0;
     @Autowired
     JdbcTemplate jdbcTemplate;
 
@@ -27,7 +27,7 @@ public class PlayerDao {
 
     public Collection<Player> findAll() {
         List<Player> playerList = new ArrayList<>();
-        playerList = jdbcTemplate.query("Select * from player", new RowMapper<Player>() {
+        playerList = jdbcTemplate.query("Select * from player order by base_price", new RowMapper<Player>() {
             @Override
             public Player mapRow(ResultSet resultSet, int i) throws SQLException {
                 Player player = new Player();
@@ -101,5 +101,39 @@ public class PlayerDao {
         }
         return price;
     }
+    
+    public boolean startBidding(){
+        TimerTask timerTask =new TimerTask() {
+            @Override
+            public void run(){
+                    PlayerDao.curpos++;
+            }
+        };
+        Timer timer =new Timer();
+        //Schedule the specified task to start repeated, fixed delays at a specified time.This is executed every 3 seconds
+        timer.schedule(timerTask,10,3000);
+        return true;
+    }
 
+    public Player biddingPlayer() {
+        List<Player> playerList = new ArrayList<>();
+        playerList = jdbcTemplate.query("Select * from player order by base_price", new RowMapper<Player>() {
+            @Override
+            public Player mapRow(ResultSet resultSet, int i) throws SQLException {
+                Player player = new Player();
+                player.setPlayerId(resultSet.getInt("id"));
+                player.setPlayerName(resultSet.getString("player_name"));
+                player.setPlayerImageUrl(resultSet.getString("image_url"));
+                player.setBasePrice(resultSet.getInt("base_price"));
+                player.setForm(resultSet.getInt("form"));
+                player.setSocialFollowing(resultSet.getInt("social_following"));
+                player.setPreviousRecord(resultSet.getInt("prev_record"));
+                return player;
+            }
+        });
+        if( playerList.size() > PlayerDao.curpos )
+            return playerList.get(PlayerDao.curpos);
+        else
+            return new Player();
+    }
 }
