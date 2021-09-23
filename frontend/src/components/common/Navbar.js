@@ -18,7 +18,7 @@ const Navbar = () => {
                     alt=""
                 />
                 <span className="h4 ml-2 text-white">
-                    &nbsp; AUCTION : {team?.name}
+                    &nbsp; AUCTION {" : " + team?.name}
                 </span>
             </a>
         </nav>

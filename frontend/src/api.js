@@ -23,3 +23,13 @@ export const loginTeam = async (name) => {
     let res = await fetch(BASE_URL + "/findbyname?name=" + name);
     return res.json();
 };
+
+export const startBidding = async () => {
+    let res = await fetch(BASE_URL + "/startbidding");
+    return res.json();
+};
+
+export const getBid = async () => {
+    let res = await fetch(BASE_URL + "/getbidplayer");
+    return res.json();
+};
