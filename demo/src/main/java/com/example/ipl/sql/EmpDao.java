@@ -1,6 +1,6 @@
 package com.example.ipl.sql;
 
-import com.example.demo.model.Emp;
+import com.example.ipl.model.Emp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;

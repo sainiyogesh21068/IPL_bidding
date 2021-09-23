@@ -1,7 +1,7 @@
 package com.example.ipl.service;
 
-import com.example.demo.model.Emp;
-import com.example.demo.sql.EmpDao;
+import com.example.ipl.model.Emp;
+import com.example.ipl.sql.EmpDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

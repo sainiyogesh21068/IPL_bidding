@@ -1,7 +1,7 @@
 package com.example.ipl.controller;
 
-import com.example.demo.model.Emp;
-import com.example.demo.service.EmpService;
+import com.example.ipl.model.Emp;
+import com.example.ipl.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
