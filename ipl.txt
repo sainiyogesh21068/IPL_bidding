@@ -47,3 +47,9 @@ insert into team(team_name) values('DC');
 insert into team(team_name) values('SRH');
 
 select * from team;
+
+insert into player(player_name, image_url, social_following, prev_record, form, base_price, type, sold_unsold) values ('MS Dhoni', 'https://static.iplt20.com/players/210/1.png', 35000000, 9, 9, 10000000, 'allrounder', 0);
+insert into player(player_name, image_url, social_following, prev_record, form, base_price, type, sold_unsold) values ('Rohit Sharma', 'https://static.iplt20.com/players/284/107.png', 20500000, 8, 9, 5000000, 'batsman', 0);
+insert into player(player_name, image_url, social_following, prev_record, form, base_price, type, sold_unsold) values ('Virat Kohli', 'https://static.iplt20.com/players/284/164.png', 1560000000, 9, 9, 15000000, 'batsman', 0);
+
+select * from player;
